@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <title>Administrator</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="shopping" style="margin-left: 5em;">
+    <h1> Store Management Interface </h1>
+    <form v-on:submit.prevent="addCandidate">
+      <p>Product Name
+        <input type="text" v-model="product" placeholder="Name"></p>
+      <p>Price
+        <input type="text" v-model="price" placeholder="Price"></p>
+      <p>Picture URL
+        <input type="text" v-model="imageURL" placeholder="URL">
+        <button type="submit">Add Product</button></p>
+    </form>
+
+    <h1>Current Products</h1>
+    <div v-for="product in sortedProducts">
+      <span class="glyphicon glyphicon-remove" v-on:click="deleteCandidate(product)"></span> {{product.Name}} - price {{product.price}} - ordered {{product.votes}} <img :src="product.imageURL" style="height:100px;" />
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+  <script src="javascripts/app.js"></script>
+</body>
+
+</html>
