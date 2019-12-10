@@ -1,0 +1,57 @@
+<html>
+
+<head>
+  <title>Workshop</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+
+</head>
+
+<body>
+  <div id="santa" style="margin-left: 5em;">
+    <h1> SANTA'S WORKSHOP </h1>
+    <h1 id="presentadd">Add a Present</h1>
+    <form v-on:submit.prevent="addGift">
+      <p>Present Name
+        <input type="text" v-model="name" placeholder="Name"></p>
+      <p>Price
+        <input type="number" v-model="price" placeholder="Price in Dollars"></p>
+      <p>Picture URL
+        <input type="text" v-model="imageURL" placeholder="URL">
+        <button type="submit">Add Present</button></p>
+    </form>
+    <br>
+    <h1 id="presentlist">Possible Presents</h1>
+    <div id="centered" v-for="present in presents">
+      <div v-if=present.chosen>
+        <p id="centered">
+          <span class="glyphicon glyphicon-remove" v-on:click="deletePresent(present)"></span> {{present.Name}} - ${{present.price}} - Bought
+        </p>
+      </div>
+      <div v-else>
+        <p id="centered">
+          <span class="glyphicon glyphicon-remove" v-on:click="deletePresent(present)"></span> {{present.Name}} - ${{present.price}}
+        </p>
+      </div>
+
+      <div id="bigIndent"><input type="checkbox" v-model="present.selected"> <img :src="present.imageURL" style="height:100px;" /> </div>
+      <br>
+    </div>
+    <br>
+    <div id="medIndent">
+      <button v-on:click="doselect()"> Buy selected items </button>
+    </div>
+    <p></p>
+    <p id="bigIndent">Receipt: {{cost}}</p>
+  </div>
+  <br>
+  <div class=portal id="sleigh">
+    <a href="http://cs.taylormeurs.com:8080">See what's in Santa's sleigh</a>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+  <script src="javascripts/app.js"></script>
+</body>
+
+</html>

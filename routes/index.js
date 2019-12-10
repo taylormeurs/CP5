@@ -1,55 +1,63 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Voting = mongoose.model('Voting');
+var Gifting = mongoose.model('Gifting');
 
-router.param('candidate', function(req, res, next, id) {
-  var query = Voting.findById(id);
-  query.exec(function (err, candidate){
+router.param('present', function(req, res, next, id) {
+  var query = Gifting.findById(id);
+  query.exec(function (err, present){
     if (err) { return next(err); }
-    if (!candidate) { return next(new Error("can't find candidate")); }
-    req.candidate = candidate;
+    if (!present) { return next(new Error("can't find present")); }
+    req.present= present;
     return next();
   });
 });
 
-router.get('/voting/:candidate',function(req,res) {
-  res.json(req.candidate);
+router.get('/gifting/:present',function(req,res) {
+  res.json(req.present);
 });
 
-router.put('/voting/:candidate/upvote', function(req, res, next) {
-  console.log("Put Route"+req.candidate.Name);
-  req.candidate.upvote(function(err, candidate){
+router.put('/gifting/:present/selectGift', function(req, res, next) {
+  console.log("Put Route"+req.present.Name);
+  req.present.selectGift(function(err, present){
     if (err) { return next(err); }
-    res.json(candidate);
+    res.json(present);
   });
 });
 
-router.delete('/voting/:candidate',function(req,res) {
-  req.candidate.remove();
+router.put('/gifting/:present/deselectGift', function(req, res, next) {
+  console.log("Put Route"+req.present.Name);
+  req.present.deselectGift(function(err, present){
+    if (err) { return next(err); }
+    res.json(present);
+  });
+});
+
+router.delete('/gifting/:present',function(req,res) {
+  req.present.remove();
   res.sendStatus(200);
 });
 
-router.get('/voting', function(req, res, next) {
+router.get('/gifting', function(req, res, next) {
   console.log("Get Route");
-  Voting.find(function(err, candidates){
+  Gifting.find(function(err, presents){
     if(err){ console.log("Error"); return next(err); }
-    res.json(candidates);
+    res.json(presents);
   console.log("res.json Get Route");
   });
   console.log("returningGet Route");
 });
 
-router.post('/voting', function(req, res, next) {
+router.post('/gifting', function(req, res, next) {
   console.log("Post Route");
-  var candidate = new Voting(req.body);
+  var present = new Gifting(req.body);
   console.log("Post Route");
-  console.log(candidate);
-  candidate.save(function(err, candidate){
+  console.log(present);
+  present.save(function(err, present){
 		console.log("Error "+err);
 		if(err){  return next(err); }
     console.log("Post Route before json");
-		res.json(candidate);
+		res.json(present);
 	});
 });
 

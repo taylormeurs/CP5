@@ -1,26 +1,46 @@
 <html>
 
+
+
 <head>
-    <title>Votes</title>
+    <title>Gifts</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div id="shopping" style="margin-left: 5em;">
-        <h1> Shopping Interface </h1>
+    <div id="santa" style="margin-left: 5em;">
+        <h1 id="santas"> -- Santa's -- </h1>
+        <div class="title">
+            <span class="letter" data-letter="S">S</span>
+            <span class="letter" data-letter="L">L</span>
+            <span class="letter" data-letter="E">E</span>
+            <span class="letter" data-letter="I">I</span>
+            <span class="letter" data-letter="G">G</span>
+            <span class="letter" data-letter="H">H</span>
 
-        <h1>Current Products</h1>
-        <div v-for="product in sortedProducts">
-            <input type="checkbox" v-model="product.selected"> {{product.Name}} - price {{product.price}} <img :src="product.imageURL" style="height:100px;" />
         </div>
-        <button v-on:click="dovote()"> Submit Purchase </button>
+        <div class="fullbody">
+            <section class="image-gallery">
 
-        <h1>Shopping Cart</h1>
-        <div v-for="product in sortedSelectedProducts">
-            {{product.Name}} - price {{product.price}} <img :src="product.imageURL" style="height:100px;" />
+                <div class="image" v-for="present in chosenGifts">
+                    <img :src="present.imageURL" />
+                    <br><br>
+                    <p id="name">{{present.Name}}</p>
+                </div>
+            </section>
         </div>
+        <div class=portal>
+            <a href="http://cs.taylormeurs.com:8080/workshop.html">Fly to Santa's Workshop</a>
+        </div>
+
     </div>
-    <a href="http://cs.taylormeurs.com:8080/admin.html">Admin Page</a>
+
+    <div class="footer">
+        <a href="https://github.com/BYUCS260/lab-5-mongodb-taylormeurs.git" target="_blank"><span class="fa fa-github" style="font-size: 24px"></span>&nbsp;&nbsp;GitHub</a>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
     <script src="javascripts/app.js"></script>

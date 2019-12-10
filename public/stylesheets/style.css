@@ -6,3 +6,243 @@ body {
 a {
   color: #00B7FF;
 }
+
+#name {
+  font-size: 30px;
+  text-align: center;
+}
+
+p {
+  font-family: "Courier New", Courier;
+  color: #505050;
+
+}
+
+h1 {
+  color: #AA0000;
+  font-family: 'Allerta Stencil';
+  font-size: 55px;
+}
+
+#santas {
+  text-align: center;
+}
+
+#presentlist {
+  font-size: 40px !important;
+  text-align: center;
+}
+
+#presentadd {
+  font-size: 40px !important;
+}
+
+#centered {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+#bigIndent {
+  margin: auto;
+  width: 40%;
+  padding: 10px;
+}
+
+#medIndent {
+  margin: auto;
+  width: 45%;
+  padding: 10px;
+}
+
+.giftList {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.fullbody {
+  border-right: 3px solid #AA0000;
+  border-left: 3px solid #AA0000;
+  padding: 20px;
+}
+
+
+/*title*/
+
+div.title {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.letter {
+  display: inline-block;
+  font-weight: 900;
+  font-size: 8em;
+  margin: 0.2em;
+  position: relative;
+  color: #AA0000;
+  transform-style: preserve-3d;
+  perspective: 400;
+  z-index: 1;
+}
+
+.letter:before,
+.letter:after {
+  position: absolute;
+  content: attr(data-letter);
+  transform-origin: top left;
+  top: 0;
+  left: 0;
+}
+
+.letter,
+.letter:before,
+.letter:after {
+  transition: all 0.3s ease-in-out;
+}
+
+.letter:before {
+  color: #fff;
+  text-shadow: -1px 0px 1px rgba(255, 255, 255, .8),
+  1px 0px 1px rgba(0, 0, 0, .8);
+  z-index: 3;
+  transform: rotateX(0deg) rotateY(-15deg) rotateZ(0deg);
+}
+
+.letter:after {
+  color: rgba(0, 0, 0, .11);
+  z-index: 2;
+  transform: scale(1.08, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 1deg);
+}
+
+.letter:hover:before {
+  color: #fafafa;
+  transform: rotateX(0deg) rotateY(-40deg) rotateZ(0deg);
+}
+
+.letter:hover:after {
+  transform: scale(1.08, 1) rotateX(0deg) rotateY(40deg) rotateZ(0deg) skew(0deg, 22deg);
+}
+
+/*end of title section*/
+
+/*masonry*/
+
+/* Masonry */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.image-gallery {
+  column-gap: 1.5em;
+}
+
+.image {
+  margin: 0 0 1.5em;
+  display: inline-block;
+  width: 100%;
+}
+
+.image img {
+  width: 100%;
+}
+
+/* Masonry on large screens */
+
+@media only screen and (min-width: 1024px) {
+  .image-gallery {
+    column-count: 4;
+  }
+}
+
+/* Masonry on medium-sized screens */
+
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .image-gallery {
+    column-count: 3;
+  }
+}
+
+/* Masonry on small screens */
+
+@media only screen and (max-width: 767px) and (min-width: 540px) {
+  .image-gallery {
+    column-count: 2;
+  }
+}
+
+/*portal*/
+
+.portal {
+  text-align: center;
+  margin-right: 20px;
+  margin-left: 20px;
+  bottom: 20px;
+  font-family: 'Allerta Stencil';
+  font-size: 20px;
+}
+
+#sleigh {
+  text-align: left !important;
+  margin-left: 90px !important;
+}
+
+.portal a:link {
+  text-decoration: none;
+  color: #AA0000;
+}
+
+.portal a:hover {
+  text-decoration: none;
+  color: #AA0000;
+}
+
+.portal a:active {
+  text-decoration: none;
+  color: #AA0000;
+}
+
+.portal a:visited {
+  text-decoration: none;
+  color: #AA0000;
+}
+
+
+/*footer*/
+
+.footer {
+  text-align: right;
+  margin-right: 20px;
+  margin-left: 20px;
+  left: 85%;
+  bottom: 20px;
+}
+
+.footer a:link {
+  text-decoration: none;
+  color: #505050;
+}
+
+.footer a:hover {
+  text-decoration: none;
+  color: #505050;
+}
+
+.footer a:active {
+  text-decoration: none;
+  color: #505050;
+}
+
+.footer a:visited {
+  text-decoration: none;
+  color: #505050;
+}
