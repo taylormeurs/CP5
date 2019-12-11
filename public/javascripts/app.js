@@ -17,6 +17,7 @@ var app = new Vue({
   },
   methods: {
     addGift() {
+      console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
       var url = "http://cs.taylormeurs.com:8080/gifting";
       axios.post(url, {
           Name: this.name,
